@@ -17,7 +17,8 @@ SDL_CFLAGS=$(shell sdl-config --cflags)
 CFLAGS=-O2 -g -Wall \
   $(SDL_CFLAGS) \
   -DPREFIX=\"$(PREFIX)\" -DCONFDIR=\"$(CONFDIR)\" \
-  -DVERSION="$(VERSION)"
+  -DVERSION="$(VERSION)" \
+  -fPIC
 LIBDIR=$(PREFIX)/lib
 INCDIR=$(PREFIX)/include
 BINDIR=$(PREFIX)/bin
