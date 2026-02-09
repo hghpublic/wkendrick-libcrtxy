@@ -8,20 +8,20 @@
 
 
 if [ $# -ne 0 ]; then
-  if [ $1 = "--version" ]; then
+  if [ "$1" = "--version" ]; then
     echo "__VERSION__"
     exit
   fi
-  if [ $1 = "--cflags" ]; then
-    echo `sdl-config --cflags` -I__INCDIR__
+  if [ "$1" = "--cflags" ]; then
+    echo "$(sdl-config --cflags)" -I__INCDIR__
     exit
   fi
-  if [ $1 = "--libs" ]; then
-    echo `sdl-config --libs` -lSDL_image -L__LIBDIR__ -lcrtxy
+  if [ "$1" = "--libs" ]; then
+    echo -L__LIBDIR__ -lcrtxy "$(sdl-config --libs)" -lSDL_image
     exit
   fi
-  if [ $1 = "--static-libs" ]; then
-    echo `sdl-config --static-libs` -L__LIBDIR__
+  if [ "$1" = "--static-libs" ]; then
+    echo "$(sdl-config --static-libs)" -L__LIBDIR__
     exit
   fi
 fi
