@@ -30,6 +30,8 @@ int main(int argc, char * argv[])
            "(0) exit\n"
            "Your choice? ");
     res = scanf("%d", &choice);
+    // FIXME
+    if(res){}
 
     if (choice >= 1 && choice <= 2)
     {

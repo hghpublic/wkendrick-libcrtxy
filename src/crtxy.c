@@ -11,6 +11,7 @@
 
 #include "crtxy.h"
 #include <SDL_image.h>
+#include <stdint.h>
 
 #include "gamma_2_2.h"
 
@@ -631,6 +632,8 @@ XY_bool XY_load_options_from_file(char * fname, XY_options * opts,
   while (!feof(fi) && err == XY_ERR_NONE)
   {
     res = fgets(line, sizeof(line), fi);
+    // FIXME
+    if(res){}
     if (feof(fi))
       break;
     if (strlen(line) > 0)
@@ -1374,7 +1377,7 @@ int XY_end_frame(XY_bool throttle)
     memset(ptr, 0, sz + sz2);
     memcpy(ptr, XY_dirty_rects, sz);
 
-    ptr = (void *) ((int) ptr + sz);
+    ptr = (void *) ((uintptr_t) ptr + sz);
     memcpy(ptr, XY_dirty_rects_erasure, sz2);
 
     n = XY_dirty_rect_count + XY_dirty_rect_erasure_count;
