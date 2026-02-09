@@ -1,0 +1,19 @@
+= CRT X-Y Library (libcrtxy)
+:toc:
+:sectnums:
+ifndef::env-github[:icons: font]
+:note-caption: :paperclip:
+:important-caption: :exclamation:
+:warning-caption: :warning:
+
+== libcrtxy
+
+https://libcrtxy.sourceforge.net/
+
+https://sourceforge.net/projects/libcrtxy/
+
+== William Kendrick
+
+http://newbreedsoftware.com/bill/
+
+https://sourceforge.net/u/wkendrick/profile/
