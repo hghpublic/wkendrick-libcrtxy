@@ -1,0 +1,163 @@
+= `libcrtxy`
+CRT-XY Library
+:toc:
+:sectnums:
+
+Source: https://libcrtxy.sourceforge.net/
+
+image::images/comparison-rockdodge.png[comparison-rockdodge, width=400,title="Draw lines, make games."]
+
+
+== News
+
+* September 11, 2009 - Last code changes were from December, then life
+got in the way! I just rolled together a 0.0.4 source tarball.
+
+== Purpose
+
+image::images/starwars.png[starwars,width=320, title="'Star Wars' by Atari, 1983"]
+
+
+
+The purpose of `libcrtxy` is to provide an easy way to create
+vector-graphics-basic games, similar to arcade games of the late 1970s
+and early 1980s, such as *Star Wars*
+(http://klov.com/game_detail.php?game_id=9773[KLOV] |
+http://en.wikipedia.org/wiki/Star_Wars_(1983_video_game)[Wikipedia]),
+*Battlezone* (http://klov.com/game_detail.php?game_id=7059[KLOV] |
+http://en.wikipedia.org/wiki/Battlezone_(1980_video_game)[Wikipedia]),
+*Lunar Lander* (http://klov.com/game_detail.php?game_id=8465[KLOV] |
+http://en.wikipedia.org/wiki/Lunar_Lander_(arcade_game)[Wikipedia]),
+*Asteroids* (http://klov.com/game_detail.php?game_id=6939[KLOV] |
+http://en.wikipedia.org/wiki/Asteroids_(video_game)[Wikipedia]),
+*Tempest* (http://www.klov.com/game_detail.php?game_id=10065[KLOV] |
+http://en.wikipedia.org/wiki/Tempest_(arcade_game)[Wikipedia]), and, of
+course, *Space Wars* (http://klov.com/game_detail.php?game_id=9691[KLOV]
+| http://en.wikipedia.org/wiki/Space_Wars[Wikipedia]).
+
+== What's the Point?
+
+Some of my first games for modern systems (X-Window on Solaris in the
+late 1990s) were 3D games drawn using vector outlines (e.g.,
+http://www.newbreedsoftware.com/icbm3d/[ICBM3D]). One of my games,
+http://www.newbreedsoftware.com/vectoroids/[Vectoroids], has been ported
+to many platforms, including mobile devices and handheld game systems.
+This is no doubt because it's scalable (thanks to vector graphics),
+doesn't require much horsepower (it uses fixed-point math and
+trigonometric look-up tables), and is written atop a highly portable
+library (libSDL).
+
+image::images/vectoroids-v43.png[vectoroids-v43,width=320,title="'Vectoroids' on an i-Station V43 music player (Original, libSDL-based version)"]
+
+I have a number of years experience doing cellphone game development on
+`BREW` and `J2ME`. The games that were easiest to port were some
+classic-arcade-style vector games, for the same reasons Vectoroids has
+been ported so often.
+
+While doing mobile game development, one learns that there are many
+screen sizes to deal with, many CPU speeds to deal with, and therefore
+it's easiest to think of your game in a virtual canvas, and map those
+positions onto the physical screen. To keep gameplay timing and movement
+close, regardless of the different sizes and speeds of phone it will run
+on, frame-rate independent code works best.
+
+`libcrtxy` puts these concepts together into a light `API` on top of `libSDL`.
+
+== Goal
+
+My goals for `libcrtxy` are:
+
+* Don't care about CPU or FPU — be fast, encourage framerate
+independence, and encourage use of fixed-point math.
+* Scale — screen size shouldn't matter to a vector-based game, since
+vectors scale. A game should play, more-or-less, the same on a 2GHz PC
+with an Nvidia graphics card as it does on a 200MHz ARM-based handheld
+with a 320x240 screen.
+* Look like an arcade game — on systems with the horsepower, it should
+be possible for a game to look a lot like a real arcade CRT with glowing
+phosphors. (On systems that don't, degrade to pixelated lines.)
+* Developers of games don't decide the rendering level — *it's up to the
+user* (or the person packaging the game, say for some particular
+handheld game system or embedded platform) to decide how "nice" the game
+should look.
+** Environment variables
+** Config. files
+** Command-line options
+* Open source license — `libcrtxy` is released under the
+http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser
+General Public License (LGPL)&#44; version 2.1]. This means you may use
+it in both open source and commercial games.
+
+
+== Screenshots
+
+Below are some screenshots of the test programs that come with
+`libcrtxy` 's source. When comparing two renders, remember that the game
+was not recompiled. `libcrtxy` itself was given a different set of options
+— via the library's configuration file, via command-line options to the
+app. which were then passed to the library, and/or via environment
+variable.
+
+image::images/libcrtxy-plain.png[libcrtxy-plain,width=320, title="Drawlines demo at 320x200. Anti-aliasing, alpha-blending and backgrounds are all *off*."]
+
+image::images/libcrtxy-aa.png[libcrtxy-aa,width=320, title="Drawlines demo at 320x200. Anti-aliasing, alpha-blending and backgrounds are all *on*."]
+
+image::images/rockdodge-aa.png[rockdodge-aa,width=320, title="Rockdodge demo at 320x200. Anti-aliasing, alpha-blending are *on*."]
+
+== Download
+
+* *Latest Stable Releases:*
+** https://sourceforge.net/projects/libcrtxy/files/libcrtxy/0.0.4/libcrtxy-0.0.4.tar.gz/download[libcrtxy-0.0.4.tar.gz] +
+Version: 0.0.4 (alpha) +
+Date: 2009.09.11 +
+Type: Source tarball
+* *Developmental Code:*
+** Get the code from the CVS repository at SourceForge:
+http://sourceforge.net/cvs/?group_id=235365[CVS page]
+** http://libcrtxy.cvs.sourceforge.net/libcrtxy/[Browse the CVS
+repository] over the web.
+
+
+== Documentation
+
+You can browse the documentation (generated with 'doxygen') via the web
+interface to the CVS repository:
+
+* http://libcrtxy.cvs.sourceforge.net/viewvc/*checkout*/libcrtxy/libcrtxy/docs/html/index.html[Version
+0.0.4 docs]
+
+
+== Help Me!
+
+I'm looking for help implementing all of the neat things I'd like
+libcrtxy to do! Know OpenGL and SDL? Can you build library DLLs for
+Windows? Etc.!
+
+== Links
+
+* http://www.sourceforge.net/projects/libcrtxy/[SourceForge project]
+* http://sourceforge.net/mailarchive/forum.php?forum_name=libcrtxy-devel[libcrtxy-devel
+mailing list]
+* http://www.newbreedsoftware.com/[New Breed Software] (libcrtxy was
+initiated by Bill Kendrick in July 2008)
+
+
+== Comments
+
+* Once again, you have your finger on the pulse of America. The future
+is vector-based games. -John M., 2008-07-31
+* haha, beautiful! Heroically nerdy! -Adam R., 2008-07-31
+* cool -Zach J., 2008-08-01
+
+
+== Contact
+
+Using the
+http://sourceforge.net/mailarchive/forum.php?forum_name=libcrtxy-devel[mailing
+list] is preferred, but you can also email Bill directly at:
+bill@newbreedsoftware.com. You can also find Bill on the
+http://www.libsdl.org/[libSDL] IRC channel on
+http://www.freendoe.net/[Freenode], *`#sdl`*; nickname: *kendrick* or
+*kendwork*.
+
+Hosted by http://www.sourceforge.net/[SourceForge.net].

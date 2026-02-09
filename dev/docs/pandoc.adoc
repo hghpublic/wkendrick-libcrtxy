@@ -1,0 +1,5 @@
+= pandoc
+
+----
+pandoc -f html -t asciidoc libcrtxy.html > libcrtxy.adoc
+----

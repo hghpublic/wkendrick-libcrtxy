@@ -1,0 +1,5 @@
+= asciidoc
+
+----
+sudo apt install asciidoc ruby-asciidoctor-pdf
+----
