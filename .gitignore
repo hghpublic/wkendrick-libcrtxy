@@ -1,0 +1,15 @@
+# macos
+.DS_Store
+
+# cmake
+/build/
+
+# make
+*.o
+*.a
+*.so
+crtxy-config
+drawlines
+mathtest
+polytest
+rockdodge
