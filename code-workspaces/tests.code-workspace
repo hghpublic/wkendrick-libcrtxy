@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "..",
+			"name": "root"
+		},
+		{
+			"path": "../src/tests",
+			"name": "tests"
+		}
+	]
+}
